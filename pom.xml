@@ -8,8 +8,8 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jetty.kanban.home>${basedir}/sample</jetty.kanban.home>
         
@@ -99,7 +99,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
-					<version>2.1.1</version>
+					<version>3.3.2</version>
 				</plugin>
 				<plugin>
 					<groupId>org.liquibase</groupId>
@@ -122,8 +122,9 @@
 				<configuration>
 					<includes>
 						<include>**/*Test.java</include>
+						<include>**/*TestSuite.java</include>
 					</includes>
-					<!-- For some reason Jetty can't find the TLD files with the system 
+					<!-- For some reason Jetty can't find the TLD files with the system
 						class loader. -->
 					<useSystemClassLoader>false</useSystemClassLoader>
 				</configuration>
@@ -298,6 +299,19 @@
 		</dependency>
 
 		<!-- Test -->
+
+	<dependency>
+		<groupId>io.cucumber</groupId>
+		<artifactId>cucumber-java</artifactId>
+		<version>4.8.1</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>io.cucumber</groupId>
+		<artifactId>cucumber-junit</artifactId>
+		<version>4.8.1</version>
+		<scope>test</scope>
+	</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
